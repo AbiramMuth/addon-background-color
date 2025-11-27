@@ -33,5 +33,5 @@ jobs:
       - name: 5) Uplaod l'artefact
         uses: action/upload-artifact@v4
         with:
-          path: ./
+          path: .output/firefox-mv2
 
