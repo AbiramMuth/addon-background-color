@@ -24,7 +24,8 @@ jobs:
       - name: 4) Exécution de Lint
         run: npm run lint:check
 
-
+      - name: 5) audit 
+        run: npm audit 
         
       - name: 5) Créer zip de chrome et firefox
-        run: npm run zip && npm run pack:zip
+        run: wxt build && npx web-ext build -s .output/extension -a ./dist-artifacts
