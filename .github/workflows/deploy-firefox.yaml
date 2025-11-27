@@ -1,0 +1,36 @@
+name: Exercice 3 
+
+on: 
+  push:
+    tag: 
+      - main      # push sur main
+  pull-requests:
+    branches:
+      - main
+
+jobs: 
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1) Récupèration du code
+        uses: actions/checkout@v4
+ 
+      - name: 2) Installer NodeJS
+        uses: actions/setup-node@v4
+
+      - name: 3) Installer les dépendances
+        run: npm i
+
+      - name: 4) Pas visible 
+        run:  --channel unlisted
+
+      - name: Sign with web-ext
+        run: |
+        npx web-ext sign \
+        --api-key ${{ secrets.AMO_JWT_ISSUER }} \
+        --api-secret ${{ secrets.AMO_JWT_SECRET }} \
+        --channel unlisted \
+        --source-dir ./build \
+        --artifacts-dir ./signed   
+        with:
+          path: ./package.json
