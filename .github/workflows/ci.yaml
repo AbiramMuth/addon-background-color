@@ -30,6 +30,9 @@ jobs:
       - name: 5) Créer zip de chrome et firefox
         run: npm run zip
 
+      - name: 5) Créer zip de chrome et firefox
+        run: npm build
+
       - name: 5) Uplaod l'artefact
         uses: action/upload-artifact@v4
         with:
