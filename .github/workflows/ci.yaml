@@ -4,9 +4,9 @@ on:
   push:
     branches: 
       - main      # push sur main
-  pull-request:
-    branches:
-      - main
+  # pull-request:
+  #   branches:
+  #     - main
 
 jobs: 
   demo:
@@ -26,7 +26,7 @@ jobs:
 
       - name: 5) audit 
         run: npm audit
-
+        
       - name: 5) Créer zip de chrome et firefox
         run: npm run zip && npm run pack:zip     
         with:
