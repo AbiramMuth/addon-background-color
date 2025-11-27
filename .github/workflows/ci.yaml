@@ -4,7 +4,7 @@ on:
   push:
     branches: 
       - main      # push sur main
-  pull_request:
+  pull_request:   # pull request sur branches main
     branches:
       - main
 
@@ -29,3 +29,7 @@ jobs:
         
       - name: 5) Créer zip de chrome et firefox
         run: npm run zip
+
+      - name: 5) Uplaod l'artefact
+        uses: actions/upload-artifact@v4  
+
